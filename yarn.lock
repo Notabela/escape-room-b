@@ -929,7 +929,7 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
-"@babel/runtime@^7.10.0", "@babel/runtime@^7.14.0", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.14.0", "@babel/runtime@^7.8.4":
   version "7.17.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.17.2.tgz#66f68591605e59da47523c631416b18508779941"
   integrity sha512-hzeyJyMA1YGdJTuWU0e/j4wKXrU4OMFvY2MSlaI9B7VQb0r5cxTE3EAIS2Q7Tn2RIcDkRvTA/v2JsAEhxe99uw==
@@ -973,6 +973,19 @@
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
+
+"@braid/vue-formulate-i18n@^1.16.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@braid/vue-formulate-i18n/-/vue-formulate-i18n-1.16.0.tgz#71c9121c909c7bbdfd4dfcf6a57d554f5bb1ec75"
+  integrity sha512-CuX1kN7bWg4ukynnTS3LGsmPKrUvS2Wh75zKatIe+nHQQy0gSvfmggQsCz4QZey7Ois+pGYmOIgrE1SvX+zQTw==
+
+"@braid/vue-formulate@^2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@braid/vue-formulate/-/vue-formulate-2.5.3.tgz#539990590f2933783e7339e9f0fc87318641eceb"
+  integrity sha512-HdyslHKkzJAtMiD2BP0PfQ8/BaRs1NPlWA8DhgL4ImR/1tuzQLrZButVIqWiucfRitfrgeWz5qrByZs8zp5vFw==
+  dependencies:
+    "@braid/vue-formulate-i18n" "^1.16.0"
+    is-plain-object "^3.0.1"
 
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
@@ -5232,13 +5245,6 @@ filter-obj@^1.1.0:
   resolved "https://registry.yarnpkg.com/filter-obj/-/filter-obj-1.1.0.tgz#9b311112bc6c6127a16e016c6c5d7f19e0805c5b"
   integrity sha1-mzERErxsYSehbgFsbF1/GeCAXFs=
 
-final-form@^4.20.6:
-  version "4.20.6"
-  resolved "https://registry.yarnpkg.com/final-form/-/final-form-4.20.6.tgz#da42f3741db068c0c875e18950a2c4a9a148c63e"
-  integrity sha512-fCdwIj49KOaFfDRlXB57Eo+GghIMZQWrA9TakQI3C9uQxHwaFHXqZSNRlUdfnQmNNeySwGOaGPZCvjy58hyv4w==
-  dependencies:
-    "@babel/runtime" "^7.10.0"
-
 finalhandler@1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/finalhandler/-/finalhandler-1.1.2.tgz#b7e7d000ffd11938d0fdb053506f6ebabe9f587d"
@@ -6380,6 +6386,11 @@ is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   integrity sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==
   dependencies:
     isobject "^3.0.1"
+
+is-plain-object@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-3.0.1.tgz#662d92d24c0aa4302407b0d45d21f2251c85f85b"
+  integrity sha512-Xnpx182SBMrr/aBik8y+GuR4U1L9FqMSojwDQwPMmxyC6bvEqly9UBCxhauBF5vNh2gwWJNX6oDV7O+OM4z34g==
 
 is-potential-custom-element-name@^1.0.1:
   version "1.0.1"
@@ -11355,11 +11366,6 @@ vue-eslint-parser@^7.1.1, vue-eslint-parser@^7.10.0:
     esquery "^1.4.0"
     lodash "^4.17.21"
     semver "^6.3.0"
-
-vue-final-form@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/vue-final-form/-/vue-final-form-4.0.1.tgz#bdbd7a1ae0efd9281b4e6536d9187001661fab69"
-  integrity sha512-lFGv3Z2KycT87CnZtlWkR8jafAnqBpOBNwHb82rwaO386TPm4rpUgcDCGGxCT5cTRa3f+e8j2LuUiSHIpTBaAg==
 
 vue-functional-data-merge@^3.1.0:
   version "3.1.0"
