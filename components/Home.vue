@@ -1,4 +1,5 @@
 <script lang="ts">
+import Vue from 'vue';
 import form from '../config/form.json';
 
 // form question
@@ -14,11 +15,21 @@ import form from '../config/form.json';
 let timerInterval;
 let globalInterval;
 
-export default {
-  data(): any {
+type Data = {
+  formValues: Record<string, any>;
+  questions: Array<Record<string, any>>;
+  index: number;
+  countdown: number | null;
+  penaltyCounts: Record<string, any>;
+  beginTime: number | null;
+  penaltyTime: number | null;
+  penaltyDisplay: number | null;
+};
+
+export default Vue.extend({
+  data(): Data {
     return {
       formValues: {},
-      allValues: {},
       questions: form.questions,
       index: 0,
       countdown: null,
@@ -29,60 +40,63 @@ export default {
     };
   },
   computed: {
-    question() {
+    question(): Record<string, any> {
       return this.questions[this.index];
     },
-    timerActive() {
-      return this.penaltyDisplay > 0;
+    timerActive(): boolean {
+      return this.penaltyDisplay ? this.penaltyDisplay > 0 : false;
     },
-    countdownActive() {
-      return this.countdown > 0;
+    countdownActive(): boolean {
+      return this.countdown ? this.countdown > 0 : false;
     },
   },
   mounted() {
     this.$nextTick(function () {
-      this.beginTime = localStorage.getItem('beginTime');
-      if (this.beginTime) {
+      const lsTime = localStorage.getItem('beginTime');
+      if (typeof lsTime === 'number') {
+        this.beginTime = lsTime;
         this.beginGlobalCountdown();
       }
     });
   },
   methods: {
-    beginCountDown() {
-      this.penaltyDisplay = this.penaltyTime - Date.now();
+    beginCountDown(): void {
+      const start = this.penaltyTime ?? 0;
+      this.penaltyDisplay = start - Date.now();
 
       clearInterval(timerInterval);
       timerInterval = setInterval(() => {
-        this.penaltyDisplay = this.penaltyTime - Date.now();
+        this.penaltyDisplay = start - Date.now();
         if (this.penaltyDisplay <= 0) clearInterval(timerInterval);
       }, 1000);
     },
-    beginGlobalCountdown() {
-      this.countdown = this.beginTime - Date.now();
+    beginGlobalCountdown(): void {
+      const start = this.beginTime ?? 0;
+      this.countdown = start - Date.now();
 
       clearInterval(globalInterval);
       globalInterval = setInterval(() => {
-        this.countdown = this.beginTime - Date.now();
+        this.countdown = start - Date.now();
         if (this.countdown <= 0) clearInterval(globalInterval);
       }, 1000);
     },
-    begin() {
+    begin(): void {
       const time = Date.now() + 3_600_000;
-      localStorage.setItem('beginTime', time);
+      localStorage.setItem('beginTime', String(time));
       this.beginTime = time;
       this.beginGlobalCountdown();
     },
     handleSubmit() {
       console.log();
     },
-    onPrevious() {
+    onPrevious(): void {
       this.index = Math.max(0, this.index - 1);
     },
-    onNext() {
+    onNext(): void {
       this.index = Math.min(this.index + 1, this.questions.length - 1);
       this.penaltyTime = 0; // let's store in local storage refreshing etc. doesn't change much
     },
-    handleNext(hasErrors: Boolean) {
+    handleNext(hasErrors: Boolean): void {
       if (!hasErrors) {
         this.$bvModal.show('modal');
       } else {
@@ -97,7 +111,7 @@ export default {
       }
     },
   },
-};
+});
 </script>
 
 <template>
