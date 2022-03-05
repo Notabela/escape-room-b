@@ -15,7 +15,7 @@ let timerInterval;
 let globalInterval;
 
 export default {
-  data() {
+  data(): any {
     return {
       formValues: {},
       allValues: {},
