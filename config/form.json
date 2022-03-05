@@ -2,6 +2,7 @@
   "questions": [
     {
       "title": "Test 1",
+      "name": "a",
       "url": "https://picsum.photos/200/300",
       "description": "This is the question description",
       "answer": "25",
@@ -9,10 +10,11 @@
     },
     {
       "title": "Test 2",
+      "name": "b",
       "url": "https://picsum.photos/200/300",
       "description": "This is the 2nd question description",
       "answer": "28",
-      "clue": "Kc"
+      "clue": "K"
     }
   ]
 }
